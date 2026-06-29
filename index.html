@@ -468,6 +468,50 @@
             font-size: 14px;
         }
 
+        /* WHATSAPP CALL TO ACTION BOX */
+        .wa-cta-box {
+            background-color: #f0fdf4; /* Hijau muda lembut */
+            border: 2px dashed #bbf7d0;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        }
+        .wa-cta-box h3 {
+            font-size: 19px;
+            font-weight: 800;
+            color: #166534;
+            margin-bottom: 10px;
+        }
+        .wa-cta-box p {
+            font-size: 14.5px;
+            color: #15803d;
+            margin-bottom: 22px;
+            line-height: 1.5;
+        }
+        .btn-wa {
+            background-color: #25D366;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.2s ease;
+        }
+        .btn-wa:hover {
+            background-color: #1ea952;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            color: #ffffff;
+        }
+
         /* BACK BUTTONS */
         .btn-back {
             background-color: #64748b;
@@ -476,7 +520,7 @@
             padding: 14px 30px;
             border-radius: 12px;
             cursor: pointer;
-            margin-top: 30px;
+            margin-top: 10px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -678,7 +722,6 @@
 </head>
 <body>
 
-    <!-- STICKY NAVIGATION BAR -->
     <nav>
         <a href="#" class="nav-logo" onclick="kembaliKeUtama()">
             Arah<span>Solusi</span>
@@ -692,7 +735,6 @@
     </nav>
 
     <div class="wrapper">
-        <!-- 1. HERO BANNER SECTION (Sesuai Screenshot 1) -->
         <section class="hero" id="home">
             <div class="hero-left">
                 <h1 class="hero-title">Bingung Harus Melapor<br>ke Mana?<br>Kami Punya Jawabannya.</h1>
@@ -707,14 +749,12 @@
             </div>
             <div class="hero-right">
                 <div class="hero-illustration">
-                    <!-- Icon Bangunan Bank / Institusi -->
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z"/>
                     </svg>
                 </div>
             </div>
             
-            <!-- WAVE EFFECT DECORATION (Sesuai Screenshot 1) -->
             <div class="hero-wave">
                 <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
                     <path d="M0,64 C480,150 960,-20 1440,64 L1440,120 L0,120 Z" fill="#ffffff"/>
@@ -722,7 +762,6 @@
             </div>
         </section>
 
-        <!-- 2. CARA KERJA SECTION (Sesuai Screenshot 2) -->
         <section class="section" id="cara-kerja">
             <span class="section-tag">PANDUAN MUDAH</span>
             <h2 class="section-title">Langkah Menemukan Lembaga</h2>
@@ -731,7 +770,6 @@
             <div class="grid-steps">
                 <div class="card-step">
                     <div class="step-icon-box">
-                        <!-- Icon List -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="8" y1="6" x2="21" y2="6"></line>
                             <line x1="8" y1="12" x2="21" y2="12"></line>
@@ -747,7 +785,6 @@
                 </div>
                 <div class="card-step">
                     <div class="step-icon-box">
-                        <!-- Icon Keyboard -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
                             <line x1="6" y1="8" x2="6.01" y2="8"></line>
@@ -767,7 +804,6 @@
                 </div>
                 <div class="card-step">
                     <div class="step-icon-box">
-                        <!-- Icon Document + Pen -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                             <polyline points="14 2 14 8 20 8"></polyline>
@@ -781,14 +817,12 @@
             </div>
         </section>
 
-        <!-- 3. KATEGORI MASALAH SECTION (Sesuai Screenshot 3) -->
         <section class="section" id="mulai-pencarian" style="padding-top: 40px;">
             <span class="section-tag">MULAI PENCARIAN</span>
             <h2 class="section-title">Pilih Kategori Masalah</h2>
             <p class="section-subtitle">Silakan klik salah satu kategori utama di bawah ini yang paling mewakili situasi Anda.</p>
 
             <div class="grid-kategori">
-                <!-- ADMINISTRASI KEPENDUDUKAN -->
                 <div class="card-kategori" id="card-administrasi" onclick="pilihKategoriVisual('administrasi')">
                     <svg class="kategori-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm-9 10.5c-1.46 0-2.65-1.15-2.65-2.58S9.54 9.33 11 9.33s2.65 1.16 2.65 2.59-1.19 2.58-2.65 2.58zm5.6 2.5H7.4v-.88c0-1.4 2.8-2.12 4.6-2.12s4.6.72 4.6 2.12v.88z"/>
@@ -797,11 +831,9 @@
                     <p class="kategori-desc">Pengurusan berkas identitas sipil dan dokumen pertanahan.</p>
                 </div>
 
-                <!-- BANTUAN HUKUM -->
                 <div class="card-kategori" id="card-hukum" onclick="pilihKategoriVisual('hukum')">
                     <svg class="kategori-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        <!-- Timbangan Scale icon approximation based on screenshot -->
                         <path d="M12 3 L3 9 L3 11 L21 11 L21 9 Z" fill="currentColor" stroke="none"/>
                         <circle cx="6" cy="16" r="3" fill="none"/>
                         <circle cx="18" cy="16" r="3" fill="none"/>
@@ -814,7 +846,6 @@
                     <p class="kategori-desc">Penanganan tindak kejahatan, penipuan, dan perlindungan hak individu.</p>
                 </div>
 
-                <!-- KESEHATAN & MEDIS -->
                 <div class="card-kategori" id="card-kesehatan" onclick="pilihKategoriVisual('kesehatan')">
                     <svg class="kategori-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -824,7 +855,6 @@
                     <p class="kategori-desc">Jaminan layanan medis masyarakat dan situasi kedaruratan kesehatan.</p>
                 </div>
 
-                <!-- BANTUAN SOSIAL -->
                 <div class="card-kategori" id="card-bansos" onclick="pilihKategoriVisual('bansos')">
                     <svg class="kategori-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -836,26 +866,33 @@
             </div>
         </section>
 
-        <!-- 4. INTERACTIVE PAGE DISPLAY PANEL (Sesuai Screenshot 4) -->
         <div class="page-container">
             
-            <!-- SUB-KATEGORI INTERACTIVE CARD -->
             <div id="window-sub" class="interactive-window">
                 <div class="sub-container">
                     <h2 id="window-sub-title">Pilih Spesifikasi Masalah / Dokumen</h2>
                     <div id="sub-buttons-render-area" class="sub-grid">
-                        <!-- Di-render dinamis oleh JavaScript -->
-                    </div>
+                        </div>
                 </div>
             </div>
 
-            <!-- FAQ ACCORDION INTERACTIVE CARD -->
             <div id="window-faq" class="interactive-window">
                 <div class="faq-wrapper">
                     <h2 id="window-faq-title" style="justify-content: center; font-size: 28px;">Pertanyaan Umum</h2>
                     <div style="text-align: center;"><div class="faq-stats">Terdapat 50 prosedur resmi terdaftar untuk layanan ini</div></div>
                     
                     <div id="window-faq-render-area"></div>
+                    
+                    <div class="wa-cta-box">
+                        <h3>Tidak Menemukan Masalah atau Kondisi Anda?</h3>
+                        <p>Jangan khawatir! Tim Arah Solusi siap membantu mencarikan prosedur resmi dan rekomendasi lembaga terkait secara langsung via WhatsApp.</p>
+                        <a href="#" id="btn-wa-dynamic" target="_blank" class="btn-wa">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.859 0c3.166.001 6.142 1.233 8.377 3.469 2.235 2.237 3.464 5.214 3.462 8.381-.005 6.533-5.33 11.858-11.86 11.858-2.006-.002-3.98-.51-5.734-1.478L0 24zm6.324-4.243l.351.208c1.554.922 3.35 1.409 5.176 1.41h.005c5.548 0 10.063-4.512 10.068-10.066.002-2.692-1.043-5.223-2.946-7.127S14.54 1.38 11.854 1.381c-5.551 0-10.066 4.513-10.071 10.067-.002 1.83.483 3.619 1.403 5.158l.228.381-1.009 3.686 3.776-.99zM17.66 14.93c-.313-.156-1.85-.913-2.138-1.018-.288-.105-.497-.156-.706.156-.208.312-.807 1.017-.988 1.226-.182.208-.364.234-.677.078-1.332-.667-2.213-1.173-3.102-2.701-.235-.403.235-.374.673-1.252.074-.15.037-.282-.018-.392-.056-.11-.498-1.202-.682-1.646-.18-.433-.362-.374-.497-.381-.128-.006-.275-.007-.422-.007s-.385.056-.587.276c-.201.221-.77.752-.77 1.833 0 1.08.788 2.126.898 2.276.11.15 1.549 2.366 3.753 3.318.524.227.933.362 1.251.463.526.168 1.004.144 1.382.087.422-.064 1.294-.528 1.477-1.039.182-.511.182-.949.128-1.039-.055-.09-.202-.136-.515-.292z"/>
+                            </svg>
+                            Hubungi via WhatsApp
+                        </a>
+                    </div>
                     
                     <div style="text-align: center;">
                         <button class="btn-back" onclick="kembaliKeSubDariFAQ()">🡨 Kembali ke Pilihan Spesifikasi</button>
@@ -866,7 +903,6 @@
         </div>
     </div>
 
-    <!-- 5. FOOTER BRANDING (Sesuai Screenshot 4) -->
     <footer>
         <div class="footer-logo">Arah<span>Solusi</span></div>
         <p class="footer-copy">© 2026 ArahSolusi. Semua hak dilindungi.</p>
@@ -1098,7 +1134,8 @@
             document.querySelectorAll('.interactive-window').forEach(win => win.classList.remove('active'));
 
             const title = document.getElementById('window-faq-title');
-            title.innerText = "Panduan 50 Prosedur - " + (listNamaLengkapSub[subId] || subId.toUpperCase());
+            const namaLayananTerpilih = listNamaLengkapSub[subId] || subId.toUpperCase();
+            title.innerText = "Panduan 50 Prosedur - " + namaLayananTerpilih;
 
             const renderArea = document.getElementById('window-faq-render-area');
             renderArea.innerHTML = "";
@@ -1128,6 +1165,16 @@
             });
 
             attachAccordionLogic(renderArea);
+
+            // LOGIKA LINK WHATSAPP DINAMIS SANGAT AKTIF
+            const nomorWhatsApp = "6281234567890"; // <-- GANTI DENGAN NOMOR WA ANDA (Gunakan kode 62 di depan)
+            const pesanTemplate = `Halo Arah Solusi, saya memiliki kendala atau kondisi khusus mengenai "${namaLayananTerpilih}" yang belum tertera di daftar FAQ web. Mohon panduan prosedur dan lembaga terkait untuk kasus saya.`;
+            const urlWhatsApp = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesanTemplate)}`;
+            
+            const linkWa = document.getElementById('btn-wa-dynamic');
+            if (linkWa) {
+                linkWa.href = urlWhatsApp;
+            }
 
             const winFaq = document.getElementById('window-faq');
             winFaq.classList.add('active');
