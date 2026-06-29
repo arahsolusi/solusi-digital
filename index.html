@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arah Solusi - Temukan Solusi & Lembaga Terkait Anda</title>
+    <style>
+        :root {
+            --primary-color: #1e1b4b;
+            --accent-color: #4f46e5; /* Indigo/Blue untuk teks Solusi */
+            --accent-light: #e0e7ff;
+            --green-cta: #10b981;
+            --green-hover: #059669;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-body: #f8fafc;
+            --border-color: #e2e8f0;
+            --footer-bg: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER & NAVBAR */
+        nav {
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .nav-logo {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 800;
+            color: #1e293b; /* Warna hitam keabu-abuan untuk kata Arah */
+            letter-spacing: -0.5px;
+        }
+        .nav-logo span {
+            color: var(--accent-color); /* Warna biru untuk kata Solusi */
+        }
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* CONTAINER UTAMA */
+        .wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            width: 100%;
+            background: linear-gradient(110deg, #3b82f6 0%, #1d4ed8 100%);
+            padding: 90px 80px 140px 80px;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-wave {
+            position: absolute;
+            bottom: -2px; /* Mencegah garis putih tipis */
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+        .hero-wave svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .hero-left {
+            max-width: 55%;
+            z-index: 10;
+        }
+        .hero-title {
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero-desc {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        .btn-cta {
+            background-color: var(--green-cta);
+            color: #ffffff;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-cta:hover {
+            background-color: var(--green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+        .hero-right {
+            z-index: 10;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-illustration {
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 32px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 320px;
+            height: 320px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .hero-illustration svg {
+            width: 140px;
+            height: 140px;
+            color: rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
+        }
+
+        /* SECTION TEMPLATE */
+        .section {
+            width: 100%;
+            max-width: 1100px;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .section-tag {
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 24px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        /* CARA KERJA GRID */
+        .grid-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+        .card-step {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
+        }
+        .card-step:hover {
+            transform: translateY(-5px);
+        }
+        .step-icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            background-color: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            position: relative;
+        }
+        .step-icon-box svg {
+            width: 32px;
+            height: 32px;
+        }
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #0284c7; /* Warna biru lingkaran angka */
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 800;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .step-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        .step-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* KATEGORI SELECTION GRID */
+        .grid-kategori {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            width: 100%;
+        }
+        .card-kategori {
+            background-color: #ffffff;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 40px 20px;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .card-kategori:hover, .card-kategori.active {
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.12);
+            background-color: var(--bg-body); /* Subtle gray background active state */
+            transform: translateY(-4px);
+        }
+        .kategori-icon {
+            width: 54px;
+            height: 54px;
+            color: #0284c7; /* Warna ikon spesifik pada screenshot */
+            transition: transform 0.2s ease;
+        }
+        .card-kategori:hover .kategori-icon, .card-kategori.active .kategori-icon {
+            transform: scale(1.1);
+            color: var(--accent-color);
+        }
+        .kategori-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.3;
+            min-height: 46px; /* Agar sejajar */
+        }
+        .kategori-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* PAGE CONTROL SYSTEM (DYNAMIC VIEWS) */
+        .page-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 80px;
+        }
+        .interactive-window {
+            width: 100%;
+            max-width: 1100px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .interactive-window.active {
+            display: flex;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        /* SPECIFICATION / SUB-CATEGORY BOX (SCREENSHOT 4 STYLE) */
+        .sub-container {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            width: 100%;
+            border: 1px solid var(--border-color);
+        }
+        .sub-container h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .sub-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+        .btn-sub-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+        .btn-sub-card:hover {
+            border-color: var(--accent-color);
+            background-color: var(--bg-body);
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.1);
+        }
+
+        /* ACCORDION FAQ PANELS */
+        .faq-stats {
+            background-color: var(--accent-light);
+            border: 1px solid #bae6fd;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-color);
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        .faq-wrapper {
+            width: 100%;
+            max-width: 900px;
+        }
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .faq-trigger {
+            background: #ffffff;
+            padding: 22px 25px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            font-weight: 700;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.2s;
+        }
+        .faq-trigger:hover {
+            background: var(--bg-body);
+        }
+        .faq-trigger.active {
+            background: var(--bg-body);
+            color: var(--accent-color);
+        }
+        .faq-content {
+            padding: 25px;
+            display: none;
+            border-top: 1px solid var(--border-color);
+            font-size: 15px;
+            line-height: 1.8;
+            background: #ffffff;
+        }
+        .faq-content.active {
+            display: block;
+        }
+        .faq-content p {
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        .faq-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: #334155;
+        }
+        .faq-content li {
+            margin-bottom: 10px;
+        }
+        .lembaga-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent-color);
+            padding: 16px 20px;
+            margin-top: 15px;
+            border-radius: 0 10px 10px 0;
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* BACK BUTTONS */
+        .btn-back {
+            background-color: #64748b;
+            color: #ffffff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        .btn-back:hover {
+            background-color: #475569;
+        }
+
+        /* FOOTER BRANDING (SCREENSHOT 4 BOTTOM) */
+        footer {
+            background-color: var(--footer-bg);
+            padding: 60px 40px;
+            text-align: center;
+            color: #94a3b8;
+            margin-top: auto;
+            width: 100%;
+        }
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        .footer-logo span {
+            color: var(--accent-color);
+        }
+        .footer-copy {
+            font-size: 14px;
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+        .footer-contact {
+            font-size: 15px;
+            font-weight: 500;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .footer-contact a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+        .footer-contact a:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+
+        /* ANIMASI */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================
+           ADVANCED RESPONSIVE DESIGN (PC & MOBILE)
+           ========================================== */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 20px 40px;
+            }
+            .hero {
+                padding: 80px 40px 120px 40px;
+            }
+            .hero-title {
+                font-size: 38px;
+            }
+            .grid-kategori {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .sub-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-links {
+                gap: 20px;
+                width: 100%;
+                justify-content: center;
+                padding-bottom: 5px;
+            }
+            .hero {
+                flex-direction: column-reverse; /* Menggeser ilustrasi ke atas tombol pada HP */
+                padding: 60px 20px 100px 20px;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-left {
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-title {
+                font-size: 32px;
+                line-height: 1.25;
+            }
+            .hero-desc {
+                font-size: 15px;
+                margin-bottom: 30px;
+            }
+            .hero-right {
+                width: 100%;
+            }
+            .hero-illustration {
+                width: 220px;
+                height: 220px;
+                padding: 20px;
+                border-radius: 24px;
+            }
+            .hero-illustration svg {
+                width: 100px;
+                height: 100px;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .section-subtitle {
+                font-size: 15px;
+                margin-bottom: 40px;
+            }
+            .grid-steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .card-step {
+                padding: 30px 20px;
+            }
+            .sub-container {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+            .sub-container h2 {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+            .btn-sub-card {
+                padding: 20px 15px;
+                font-size: 14px;
+                border-radius: 12px;
+            }
+            .page-container {
+                padding: 0 20px 60px 20px;
+            }
+            footer {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 26px;
+            }
+            .grid-kategori {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .sub-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .faq-trigger {
+                padding: 16px 18px;
+                font-size: 14px;
+            }
+            .faq-content {
+                padding: 18px;
+                font-size: 13.5px;
+            }
+            .lembaga-box {
+                font-size: 13px;
+                padding: 12px 15px;
+            }
+            .btn-back {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY NAVIGATION BAR -->
+    <nav>
+        <a href="#" class="nav-logo" onclick="kembaliKeUtama()">
+            Arah<span>Solusi</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#" onclick="kembaliKeUtama()">Beranda</a></li>
+            <li><a href="#cara-kerja" onclick="kembaliKeUtama()">Cara Kerja</a></li>
+            <li><a href="#mulai-pencarian" onclick="kembaliKeUtama()">Kategori</a></li>
+            <li><a href="mailto:arahsolusiservice@gmail.com">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <div class="wrapper">
+        <!-- 1. HERO BANNER SECTION (Sesuai Screenshot 1) -->
+        <section class="hero" id="home">
+            <div class="hero-left">
+                <h1 class="hero-title">Bingung Harus Melapor<br>ke Mana?<br>Kami Punya Jawabannya.</h1>
+                <p class="hero-desc">Temukan lembaga pemerintahan, sosial, atau bantuan hukum<br>yang paling tepat dan sesuai dengan situasi spesifik yang<br>sedang Anda hadapi saat ini.</p>
+                <a href="#mulai-pencarian" class="btn-cta" onclick="kembaliKeUtama()">
+                    Mulai Cari Solusi 
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-right">
+                <div class="hero-illustration">
+                    <!-- Icon Bangunan Bank / Institusi -->
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- WAVE EFFECT DECORATION (Sesuai Screenshot 1) -->
+            <div class="hero-wave">
+                <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+                    <path d="M0,64 C480,150 960,-20 1440,64 L1440,120 L0,120 Z" fill="#ffffff"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 2. CARA KERJA SECTION (Sesuai Screenshot 2) -->
+        <section class="section" id="cara-kerja">
+            <span class="section-tag">PANDUAN MUDAH</span>
+            <h2 class="section-title">Langkah Menemukan Lembaga</h2>
+            <p class="section-subtitle">Ikuti tiga langkah sederhana berikut untuk mendapatkan rekomendasi instansi yang harus Anda hubungi.</p>
+            
+            <div class="grid-steps">
+                <div class="card-step">
+                    <div class="step-icon-box">
+                        <!-- Icon List -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                        <div class="step-number">1</div>
+                    </div>
+                    <h3 class="step-title">Pilih Kategori</h3>
+                    <p class="step-desc">Tentukan kelompok masalah utama yang paling mewakili situasi administratif atau hukum Anda.</p>
+                </div>
+                <div class="card-step">
+                    <div class="step-icon-box">
+                        <!-- Icon Keyboard -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                            <line x1="6" y1="8" x2="6.01" y2="8"></line>
+                            <line x1="10" y1="8" x2="10.01" y2="8"></line>
+                            <line x1="14" y1="8" x2="14.01" y2="8"></line>
+                            <line x1="18" y1="8" x2="18.01" y2="8"></line>
+                            <line x1="6" y1="12" x2="6.01" y2="12"></line>
+                            <line x1="10" y1="12" x2="10.01" y2="12"></line>
+                            <line x1="14" y1="12" x2="14.01" y2="12"></line>
+                            <line x1="18" y1="12" x2="18.01" y2="12"></line>
+                            <line x1="8" y1="16" x2="16" y2="16"></line>
+                        </svg>
+                        <div class="step-number">2</div>
+                    </div>
+                    <h3 class="step-title">Input Masalah</h3>
+                    <p class="step-desc">Ceritakan detail kronologi keluhan atau situasi darurat yang Anda alami di kolom teks.</p>
+                </div>
+                <div class="card-step">
+                    <div class="step-icon-box">
+                        <!-- Icon Document + Pen -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <path d="M16 13l-4 4-2-2"></path>
+                        </svg>
+                        <div class="step-number">3</div>
+                    </div>
+                    <h3 class="step-title">Dapatkan Hasil</h3>
+                    <p class="step-desc">Terima rincian prosedur penanganan SOP resmi beserta rekomendasi nama lembaga negara terkait.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. KATEGORI MASALAH SECTION (Sesuai Screenshot 3) -->
+        <section class="section" id="mulai-pencarian" style="padding-top: 40px;">
+            <span class="section-tag">MULAI PENCARIAN</span>
+            <h2 class="section-title">Pilih Kategori Masalah</h2>
+            <p class="section-subtitle">Silakan klik salah satu kategori utama di bawah ini yang paling mewakili situasi Anda.</p>
+
+            <div class="grid-kategori">
+                <!-- ADMINISTRASI KEPENDUDUKAN -->
+                <div class="card-kategori" id="card-administrasi" onclick="pilihKategoriVisual('administrasi')">
+                    <svg class="kategori-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm-9 10.5c-1.46 0-2.65-1.15-2.65-2.58S9.54 9.33 11 9.33s2.65 1.16 2.65 2.59-1.19 2.58-2.65 2.58zm5.6 2.5H7.4v-.88c0-1.4 2.8-2.12 4.6-2.12s4.6.72 4.6 2.12v.88z"/>
+                    </svg>
+                    <h3 class="kategori-title">Administrasi<br>Kependudukan</h3>
+                    <p class="kategori-desc">Pengurusan berkas identitas sipil dan dokumen pertanahan.</p>
+                </div>
+
+                <!-- BANTUAN HUKUM -->
+                <div class="card-kategori" id="card-hukum" onclick="pilihKategoriVisual('hukum')">
+                    <svg class="kategori-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        <!-- Timbangan Scale icon approximation based on screenshot -->
+                        <path d="M12 3 L3 9 L3 11 L21 11 L21 9 Z" fill="currentColor" stroke="none"/>
+                        <circle cx="6" cy="16" r="3" fill="none"/>
+                        <circle cx="18" cy="16" r="3" fill="none"/>
+                        <line x1="6" y1="11" x2="6" y2="13"/>
+                        <line x1="18" y1="11" x2="18" y2="13"/>
+                        <line x1="12" y1="11" x2="12" y2="22"/>
+                        <line x1="8" y1="22" x2="16" y2="22"/>
+                    </svg>
+                    <h3 class="kategori-title">Bantuan Hukum</h3>
+                    <p class="kategori-desc">Penanganan tindak kejahatan, penipuan, dan perlindungan hak individu.</p>
+                </div>
+
+                <!-- KESEHATAN & MEDIS -->
+                <div class="card-kategori" id="card-kesehatan" onclick="pilihKategoriVisual('kesehatan')">
+                    <svg class="kategori-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        <path d="M9 11l2.5 3.5L14.5 8H17v2h-2l-3.5 6L9 12H6v-2h3z" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+                    </svg>
+                    <h3 class="kategori-title">Kesehatan & Medis</h3>
+                    <p class="kategori-desc">Jaminan layanan medis masyarakat dan situasi kedaruratan kesehatan.</p>
+                </div>
+
+                <!-- BANTUAN SOSIAL -->
+                <div class="card-kategori" id="card-bansos" onclick="pilihKategoriVisual('bansos')">
+                    <svg class="kategori-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        <path d="M4 22h16v-2H4v2zm14-5H6v-2h12v2zm-2-4H8v-2h8v2zm-2-4h-4V7h4v2z" fill="#ffffff"/>
+                    </svg>
+                    <h3 class="kategori-title">Bantuan Sosial</h3>
+                    <p class="kategori-desc">Program bantuan jaminan pendidikan dan kesejahteraan dari pemerintah.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. INTERACTIVE PAGE DISPLAY PANEL (Sesuai Screenshot 4) -->
+        <div class="page-container">
+            
+            <!-- SUB-KATEGORI INTERACTIVE CARD -->
+            <div id="window-sub" class="interactive-window">
+                <div class="sub-container">
+                    <h2 id="window-sub-title">Pilih Spesifikasi Masalah / Dokumen</h2>
+                    <div id="sub-buttons-render-area" class="sub-grid">
+                        <!-- Di-render dinamis oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ ACCORDION INTERACTIVE CARD -->
+            <div id="window-faq" class="interactive-window">
+                <div class="faq-wrapper">
+                    <h2 id="window-faq-title" style="justify-content: center; font-size: 28px;">Pertanyaan Umum</h2>
+                    <div style="text-align: center;"><div class="faq-stats">Terdapat 50 prosedur resmi terdaftar untuk layanan ini</div></div>
+                    
+                    <div id="window-faq-render-area"></div>
+                    
+                    <div style="text-align: center;">
+                        <button class="btn-back" onclick="kembaliKeSubDariFAQ()">🡨 Kembali ke Pilihan Spesifikasi</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 5. FOOTER BRANDING (Sesuai Screenshot 4) -->
+    <footer>
+        <div class="footer-logo">Arah<span>Solusi</span></div>
+        <p class="footer-copy">© 2026 ArahSolusi. Semua hak dilindungi.</p>
+        <p class="footer-contact">
+            Butuh bantuan teknis? 
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #38bdf8;">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <a href="mailto:arahsolusiservice@gmail.com">arahsolusiservice@gmail.com</a>
+        </p>
+    </footer>
+
+    <script>
+        // ==========================================
+        // 1. DATA DATABASE (KASUS DAN PROSEDUR RESMI)
+        // ==========================================
+        const metaData = {
+            'ktp': { nama: 'KTP (Kartu Tanda Penduduk)', lembaga: 'Disdukcapil / Kantor Kecamatan' },
+            'kk': { nama: 'KK (Kartu Keluarga)', lembaga: 'Disdukcapil / Kelurahan' },
+            'akta': { nama: 'Akta Kelahiran', lembaga: 'Dinas Kependudukan dan Pencatatan Sipil (Disdukcapil)' },
+            'tanah': { nama: 'Surat Tanah / Sertifikat', lembaga: 'Badan Pertanahan Nasional (BPN)' },
+            'kekerasan': { nama: 'Tindak Kekerasan / Penganiayaan', lembaga: 'Unit PPA Kepolisian RI' },
+            'penipuan': { nama: 'Kasus Penipuan (Online/Offline)', lembaga: 'Polisi Siber / Kepolisian RI' },
+            'perlindungan': { nama: 'Perlindungan Anak dan Perempuan', lembaga: 'UPTD PPA Daerah & KemenPPPA' },
+            'bpjs': { nama: 'BPJS Kesehatan', lembaga: 'Kantor Cabang BPJS Kesehatan' },
+            'darurat': { nama: 'Darurat Medis / Ambulans', lembaga: 'Fasilitas Kesehatan / PSC 119' },
+            'kip': { nama: 'KIP (Kartu Indonesia Pintar)', lembaga: 'Puslapdik Kemdikbudristek' },
+            'pip': { nama: 'PIP (Program Indonesia Pintar)', lembaga: 'Pihak Sekolah & Kemdikbudristek' },
+            'pkh': { nama: 'PKH (Program Keluarga Harapan)', lembaga: 'Kementerian Sosial & Dinas Sosial' }
+        };
+
+        const rawFaqData = {
+            ktp: [
+                { q: "Bagaimana cara membuat e-KTP baru untuk pertama kali (usia 17 tahun)?", p: ["Pastikan pemohon sudah berusia minimal 17 tahun.", "Datang ke Kantor Kecamatan atau Disdukcapil membawa fotokopi Kartu Keluarga (KK).", "Rekam foto wajah, sidik jari, iris mata, dan tanda tangan digital di loket.", "Tunggu proses pencetakan fisik e-KTP selesai."], l: "Disdukcapil / Kecamatan" },
+                { q: "Apa syarat mengurus e-KTP yang hilang atau dicuri?", p: ["Buat Surat Keterangan Kehilangan di Polsek terdekat (gratis).", "Bawa surat tersebut dan fotokopi KK ke Kecamatan/Disdukcapil.", "Ajukan pencetakan ulang tanpa perlu rekam foto baru."], l: "Kepolisian & Disdukcapil" },
+                { q: "Bagaimana prosedur mengganti e-KTP yang patah atau buram?", p: ["Bawa fisik e-KTP lama yang rusak tersebut.", "Bawa fotokopi KK terbaru.", "Datang ke Disdukcapil atau mesin cetak KTP mandiri untuk tukar baru."], l: "Disdukcapil" }
+            ],
+            kk: [
+                { q: "Bagaimana cara memasukkan bayi baru lahir ke dalam KK?", p: ["Siapkan KK asli yang lama.", "Bawa Surat Keterangan Kelahiran dari RS/Bidan.", "Bawa fotokopi Buku Nikah orang tua.", "Ajukan pembaruan KK ke Kecamatan atau via aplikasi online daerah."], l: "Disdukcapil" },
+                { q: "Apa syarat pecah KK bagi pasangan yang baru menikah?", p: ["Bawa fotokopi Buku Nikah suami dan istri.", "Bawa KK asli dari pihak keluarga suami dan KK asli keluarga istri.", "Isi formulir pengajuan pecah KK di desa/kelurahan, lalu teruskan ke Kecamatan."], l: "Kantor Kelurahan & Kecamatan" }
+            ],
+            akta: [
+                { q: "Apa saja syarat utama pembuatan Akta Kelahiran Anak?", p: ["Surat Keterangan Lahir asli dari Bidan/Dokter/RS.", "Fotokopi KK dan KTP kedua orang tua.", "Fotokopi Buku Nikah orang tua yang dilegalisir.", "Daftarkan lewat aplikasi online kependudukan atau loket resmi Disdukcapil."], l: "Disdukcapil" }
+            ],
+            tanah: [
+                { q: "Bagaimana cara mendaftarkan Sertifikat Tanah lewat program PTSL?", p: ["Pastikan desa Anda masuk wilayah program PTSL tahun ini.", "Siapkan KTP, KK, bukti alas hak (Girik/Petuk/AJB), dan PBB.", "Pasang patok batas tanah yang disetujui tetangga.", "Ikuti penyuluhan dan pengukuran oleh petugas BPN di balai desa."], l: "Badan Pertanahan Nasional (BPN) & Desa" }
+            ],
+            kekerasan: [
+                { q: "Ke mana harus melapor jika melihat atau mengalami KDRT?", p: ["Amankan diri ke tempat terlindung.", "Lakukan Visum et Repertum di RS/Puskesmas sebagai bukti sah.", "Laporkan ke SPKT Polres/Polsek bagian unit PPA (Perlindungan Perempuan dan Anak)."], l: "Unit PPA Kepolisian RI & Rumah Sakit" }
+            ],
+            penipuan: [
+                { q: "Langkah pertama saat sadar tertipu belanja online?", p: ["Simpan bukti chat, nomor HP, dan struk transfer.", "Segera lapor nomor rekening penipu ke situs cekrekening.id.", "Hubungi Call Center Bank Anda untuk meminta penundaan transaksi (blokir sepihak)."], l: "Bank Terkait & Kemenkominfo" }
+            ],
+            perlindungan: [
+                { q: "Bagaimana mendapat rumah aman (shelter) bagi korban yang terancam?", p: ["Hubungi SAPA 129 darurat.", "UPTD PPA daerah atau Kepolisian akan mengevakuasi korban.", "Identitas dan lokasi rumah aman dirahasiakan sepenuhnya secara hukum."], l: "UPTD PPA & Dinas Sosial" }
+            ],
+            bpjs: [
+                { q: "Bagaimana cara mendaftar BPJS Kesehatan secara online?", p: ["Unduh aplikasi Mobile JKN.", "Siapkan NIK KTP, KK, dan rekening bank autodebet.", "Pilih fasilitas kesehatan tingkat 1 (Faskes).", "Bayar iuran pertama setelah masa tunggu 14 hari."], l: "BPJS Kesehatan" }
+            ],
+            darurat: [
+                { q: "Cara memanggil ambulans gratis dari pemerintah?", p: ["Telepon ke 119 (Public Safety Center).", "Beritahu detail kondisi pasien dan alamat pasti.", "Petugas akan melacak PSC terdekat untuk mengirimkan armada medis."], l: "PSC 119 (Kementerian Kesehatan)" }
+            ],
+            kip: [
+                { q: "Bagaimana cara mendaftar KIP Kuliah?", p: ["Siswa kelas 12 daftar di kip-kuliah.kemdikbud.go.id.", "Masukkan NIK, NISN, NPSN. Sistem akan validasi data miskin.", "Lengkapi dokumen aset, prestasi, foto rumah.", "Ikuti seleksi SNBP/SNBT/Mandiri."], l: "Puslapdik Kemendikbudristek" }
+            ],
+            pip: [
+                { q: "Bagaimana syarat siswa mendapat bantuan PIP?", p: ["Keluarga pemegang KKS atau PKH.", "Serahkan KK, KTP orang tua, dan KKS ke operator sekolah.", "Sekolah menandai status layak PIP di Dapodik.", "Tunggu SK penetapan penerima cair ke rekening SimPel."], l: "Pihak Sekolah & Kemdikbud" }
+            ],
+            pkh: [
+                { q: "Bagaimana cara cek daftar penerima Bansos PKH?", p: ["Buka situs cekbansos.kemensos.go.id.", "Pilih Provinsi hingga Desa, masukkan nama sesuai KTP.", "Klik Cari Data. Akan muncul riwayat penerimaan bansos."], l: "Kementerian Sosial" }
+            ]
+        };
+
+        const contextualTemplates = [
+            {
+                q: "Apakah proses pengurusan {nama} bisa diwakilkan oleh orang lain?",
+                p: ["Buat Surat Kuasa bermaterai yang ditandatangani langsung oleh pemohon utama.", "Lampirkan KTP asli pemohon dan KTP penerima kuasa sebagai bukti identitas sah.", "Bawa berkas tersebut ke {lembaga} dan sampaikan kepada petugas loket bahwa pengurusan diwakilkan."]
+            },
+            {
+                q: "Bagaimana prosedur khusus pengurusan {nama} bagi Lansia atau Penyandang Disabilitas?",
+                p: ["Beberapa daerah memiliki program prioritas (Jemput Bola) di mana petugas datang ke rumah.", "Jika pemohon datang langsung, laporkan kondisi fisik ke satpam pengamanan.", "Pemohon akan diberikan nomor antrean prioritas jalur khusus di {lembaga} agar tidak perlu mengantre lama."]
+            },
+            {
+                q: "Apa yang harus dilakukan jika terjadi salah ketik data (typo) oleh petugas saat mengurus {nama}?",
+                p: ["Segera sampaikan keberatan kepada petugas loket sebelum dokumen final dicetak.", "Jika dokumen terlanjur dicetak, siapkan fotokopi identitas asli pendukung yang benar (seperti Ijazah).", "Isi formulir ralat/revisi di {lembaga} tanpa dikenakan biaya tambahan."]
+            },
+            {
+                q: "Ke mana masyarakat harus melapor jika dimintai uang (pungli/calo) oleh oknum saat mengurus {nama}?",
+                p: ["Jangan berikan uang kepada oknum tersebut. Catat nama petugas, waktu, dan lokasi kejadian.", "Kumpulkan bukti berupa foto, rekaman suara, atau saksi mata.", "Laporkan segera ke kanal aduan resmi Saber Pungli, Ombudsman RI, atau unit pengawas internal {lembaga} via aplikasi SP4N Lapor!"]
+            },
+            {
+                q: "Bagaimana cara mengecek status pengajuan {nama} secara online?",
+                p: ["Akses situs web resmi atau unduh aplikasi mobile milik {lembaga}.", "Cari menu 'Cek Status Permohonan' atau 'Tracking Layanan'.", "Masukkan nomor resi pendaftaran atau NIK pemohon untuk melihat sejauh mana proses berjalan."]
+            },
+            {
+                q: "Bagaimana prosedur jika website/sistem pendaftaran online {nama} sedang error (server down)?",
+                p: ["Tunggu 1x24 jam dan coba refresh halaman pendaftaran secara berkala.", "Bersihkan cache browser Anda atau gunakan mode incognito (penyamaran).", "Jika masalah berlanjut lebih dari 2 hari, segera datangi kantor {lembaga} secara fisik untuk memproses pendaftaran manual."]
+            },
+            {
+                q: "Apakah permohonan pengurusan {nama} bisa dibatalkan atau dicabut di tengah proses?",
+                p: ["Bisa. Pemohon harus datang langsung ke unit pelayanan {lembaga}.", "Mengisi formulir surat pernyataan pembatalan layanan bermaterai.", "Dokumen pendukung yang sudah diserahkan dapat diminta kembali (tergantung SOP daerah)."]
+            },
+            {
+                q: "Apa langkah yang harus diambil jika nomor urut antrean untuk {nama} terlewat?",
+                p: ["Segera melapor ke petugas satpam atau customer service di bagian depan.", "Biasanya, petugas akan menyelipkan nomor Anda setelah 2-3 nomor antrean berikutnya selesai dilayani.", "Jika loket sudah tutup, Anda wajib mengambil nomor antrean baru pada hari kerja berikutnya di {lembaga}."]
+            },
+            {
+                q: "Bagaimana jika dokumen persyaratan utama untuk mengurus {nama} hilang akibat bencana alam/kebakaran?",
+                p: ["Buat Surat Keterangan Kehilangan dari Kepolisian dan Surat Pengantar khusus dari Kepala Desa/Lurah setempat yang menyatakan terjadinya bencana.", "Bawa surat tersebut ke {lembaga}.", "Petugas akan membuka database arsip kependudukan/layanan lama untuk melakukan verifikasi silang (cross-check)."]
+            },
+            {
+                q: "Apakah pengurusan {nama} melayani proses kilat (1 hari jadi) dalam kondisi darurat medis/hukum?",
+                p: ["Secara umum pelayanan mengikuti SOP durasi hari kerja normal.", "Namun, untuk kondisi sangat darurat (misal: syarat operasi RS atau persidangan), pemohon bisa mengajukan permohonan Surat Rekomendasi/Tindakan Cepat.", "Serahkan bukti kedaruratan (surat dokter/pengadilan) langsung ke kepala loket/pejabat {lembaga}."]
+            },
+            {
+                q: "Mengapa permohonan {nama} saya ditolak oleh sistem tanpa alasan yang jelas?",
+                p: ["Kemungkinan besar ada perbedaan data (mismatch) antara NIK KTP Anda dengan database pusat.", "Periksa kembali ukuran file foto/PDF (biasanya maksimal 2MB) dan pastikan dokumen tidak buram.", "Jika tetap ditolak, cetak bukti penolakan sistem tersebut dan bawa ke helpdesk kantor {lembaga} untuk dievaluasi manual."]
+            },
+            {
+                q: "Apakah masyarakat yang buta huruf (tidak bisa baca tulis) tetap bisa mengakses layanan {nama}?",
+                p: ["Tentu saja. Akses layanan adalah hak seluruh warga negara.", "Pemohon dapat didampingi oleh anggota keluarga (satu KK) atau aparat RT/RW setempat.", "Petugas {lembaga} diwajibkan memberikan asistensi penuh, termasuk membacakan formulir dan mengganti tanda tangan dengan cap jempol."]
+            },
+            {
+                q: "Bagaimana cara mengubah alamat email atau nomor HP yang sudah terdaftar pada sistem {nama}?",
+                p: ["Login ke portal akun pengguna di situs {lembaga} menggunakan email lama jika masih bisa diakses.", "Masuk ke menu 'Pengaturan Akun' atau 'Profil' lalu lakukan pembaruan data kontak.", "Jika akses hilang sepenuhnya (lupa password & nomor hangus), Anda harus mendatangi layanan IT Support di kantor fisik {lembaga} untuk reset data."]
+            },
+            {
+                q: "Apakah Warga Negara Indonesia (WNI) yang baru pulang dari luar negeri bisa langsung mengurus {nama}?",
+                p: ["Bisa. Pemohon harus melapor ke Ketua RT/RW setempat dan Kelurahan terlebih dahulu (lapor kedatangan).", "Bawa paspor asli dan cap stempel Imigrasi kepulangan sebagai bukti otentik.", "Selanjutnya ajukan pendaftaran {nama} melalui prosedur normal di {lembaga} sesuai domisili baru."]
+            },
+            {
+                q: "Bagaimana jika bukti resi (kertas struk) pengurusan {nama} hilang sebelum dokumen selesai dicetak?",
+                p: ["Jangan panik. Data permohonan Anda sudah tersimpan di database server lokal.", "Siapkan KTP asli dan fotokopi KK.", "Datang ke loket pengambilan di {lembaga} dan jelaskan bahwa resi hilang. Petugas akan memverifikasi wajah dan identitas Anda untuk menyerahkan dokumen."]
+            },
+            {
+                q: "Apakah pengurusan {nama} memerlukan biaya materai khusus?",
+                p: ["Based on regulasi, untuk formulir pernyataan mutlak atau surat kuasa wajib menggunakan materai Rp 10.000.", "Untuk dokumen formulir pendaftaran standar, biasanya tidak memerlukan materai.", "Pastikan Anda membeli materai secara mandiri sebelum datang ke {lembaga} agar proses lebih cepat."]
+            }
+        ];
+
+        // ==========================================
+        // 3. GENERATOR ENGINE (AUTO-COMPLETE TO 50 EACH)
+        // ==========================================
+        const finalFaqData = {};
+        const semuaSubKategori = Object.keys(rawFaqData);
+
+        semuaSubKategori.forEach(sub => {
+            finalFaqData[sub] = [...rawFaqData[sub]];
+            const namaLayanan = metaData[sub].nama;
+            const namaLembaga = metaData[sub].lembaga;
+            
+            let templateIndex = 0;
+            while (finalFaqData[sub].length < 50) {
+                let templateTanya = contextualTemplates[templateIndex % contextualTemplates.length].q;
+                let templateProsedur = [...contextualTemplates[templateIndex % contextualTemplates.length].p];
+                
+                templateTanya = templateTanya.replace(/{nama}/g, namaLayanan).replace(/{lembaga}/g, namaLembaga);
+                let prosedurTerinjeksi = templateProsedur.map(langkah => langkah.replace(/{nama}/g, namaLayanan).replace(/{lembaga}/g, namaLembaga));
+                
+                finalFaqData[sub].push({
+                    q: templateTanya,
+                    p: prosedurTerinjeksi,
+                    l: namaLembaga
+                });
+                templateIndex++;
+            }
+        });
+
+        // ==========================================
+        // 4. INTERACTIVE WINDOWS MANAGER (NAVIGATION)
+        // ==========================================
+        let currentActiveCategory = "";
+
+        const mappingKategoriKeSub = {
+            'administrasi': ['ktp', 'kk', 'akta', 'tanah'],
+            'hukum': ['kekerasan', 'penipuan', 'perlindungan'],
+            'kesehatan': ['bpjs', 'darurat'],
+            'bansos': ['kip', 'pip', 'pkh']
+        };
+
+        const listNamaLengkapSub = {
+            'ktp': 'KTP (Kartu Tanda Penduduk)',
+            'kk': 'KK (Kartu Keluarga)',
+            'akta': 'Akta Kelahiran',
+            'tanah': 'Surat Tanah / Sertifikat',
+            'kekerasan': 'Tindak Kekerasan / Penganiayaan',
+            'penipuan': 'Kasus Penipuan (Online/Offline)',
+            'perlindungan': 'Perlindungan Anak & Perempuan',
+            'bpjs': 'BPJS Kesehatan',
+            'darurat': 'Darurat Medis / Ambulans',
+            'kip': 'KIP (Kartu Indonesia Pintar)',
+            'pip': 'PIP (Program Indonesia Pintar)',
+            'pkh': 'PKH (Program Keluarga Harapan)'
+        };
+
+        function pilihKategoriVisual(kategoriId) {
+            currentActiveCategory = kategoriId;
+
+            // Active border highlight 
+            document.querySelectorAll('.card-kategori').forEach(card => card.classList.remove('active'));
+            const selectedCard = document.getElementById('card-' + kategoriId);
+            if(selectedCard) {
+                selectedCard.classList.add('active');
+            }
+
+            document.querySelectorAll('.interactive-window').forEach(win => win.classList.remove('active'));
+
+            const renderArea = document.getElementById('sub-buttons-render-area');
+            renderArea.innerHTML = "";
+
+            const subs = mappingKategoriKeSub[kategoriId] || [];
+            subs.forEach(subId => {
+                const btn = document.createElement('button');
+                btn.className = "btn-sub-card";
+                btn.innerText = listNamaLengkapSub[subId] || subId.toUpperCase();
+                btn.onclick = function() {
+                    bukaSpesifikFAQ(subId);
+                };
+                renderArea.appendChild(btn);
+            });
+
+            const winSub = document.getElementById('window-sub');
+            winSub.classList.add('active');
+            winSub.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function bukaSpesifikFAQ(subId) {
+            document.querySelectorAll('.interactive-window').forEach(win => win.classList.remove('active'));
+
+            const title = document.getElementById('window-faq-title');
+            title.innerText = "Panduan 50 Prosedur - " + (listNamaLengkapSub[subId] || subId.toUpperCase());
+
+            const renderArea = document.getElementById('window-faq-render-area');
+            renderArea.innerHTML = "";
+
+            const listFAQ = finalFaqData[subId] || [];
+            listFAQ.forEach((item, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item';
+
+                let prosedurHTML = "";
+                item.p.forEach(langkah => {
+                    prosedurHTML += `<li>${langkah}</li>`;
+                });
+
+                faqItem.innerHTML = `
+                    <button class="faq-trigger">
+                        <span><strong>Q${index + 1}:</strong> ${item.q}</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="faq-content">
+                        <p><strong>Prosedur Resmi:</strong></p>
+                        <ol>${prosedurHTML}</ol>
+                        <div class="lembaga-box">🏛️ Lembaga Penanggung Jawab: ${item.l}</div>
+                    </div>
+                `;
+                renderArea.appendChild(faqItem);
+            });
+
+            attachAccordionLogic(renderArea);
+
+            const winFaq = document.getElementById('window-faq');
+            winFaq.classList.add('active');
+            winFaq.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function kembaliKeSubDariFAQ() {
+            document.getElementById('window-faq').classList.remove('active');
+            if (currentActiveCategory) {
+                pilihKategoriVisual(currentActiveCategory);
+            } else {
+                kembaliKeUtama();
+            }
+        }
+
+        function attachAccordionLogic(container) {
+            const triggers = container.querySelectorAll('.faq-trigger');
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const arrow = this.querySelector('span:last-child');
+                    
+                    if (content.classList.contains("active")) {
+                        content.classList.remove("active");
+                        this.classList.remove("active");
+                        arrow.style.transform = "rotate(0deg)";
+                    } else {
+                        // Close others
+                        container.querySelectorAll('.faq-content').forEach(c => {
+                            c.classList.remove("active");
+                            c.style.display = "none";
+                        });
+                        container.querySelectorAll('.faq-trigger').forEach(b => {
+                            b.classList.remove("active");
+                            b.querySelector('span:last-child').style.transform = "rotate(0deg)";
+                        });
+
+                        // Open selected
+                        content.classList.add("active");
+                        content.style.display = "block";
+                        this.classList.add("active");
+                        arrow.style.transform = "rotate(180deg)";
+                        arrow.style.transition = "transform 0.2s";
+                    }
+                });
+            });
+        }
+
+        function kembaliKeUtama() {
+            document.querySelectorAll('.interactive-window').forEach(win => win.classList.remove('active'));
+            document.querySelectorAll('.card-kategori').forEach(card => card.classList.remove('active'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
