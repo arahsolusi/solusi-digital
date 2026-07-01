@@ -891,7 +891,8 @@
             'darurat': { nama: 'Darurat Medis / Ambulans', lembaga: 'Fasilitas Kesehatan / PSC 119' },
             'kip': { nama: 'KIP (Kartu Indonesia Pintar)', lembaga: 'Puslapdik Kemdikbudristek' },
             'pip': { nama: 'PIP (Program Indonesia Pintar)', lembaga: 'Pihak Sekolah & Kemdikbudristek' },
-            'pkh': { nama: 'PKH (Program Keluarga Harapan)', lembaga: 'Kementerian Sosial & Dinas Sosial' }
+            'pkh': { nama: 'PKH (Program Keluarga Harapan)', lembaga: 'Kementerian Sosial & Dinas Sosial' },
+            'sim': { nama: 'SIM (Surat Izin Mengemudi)', lembaga: 'Satpas / Kepolisian RI' } 
         };
 
         const rawFaqData = {
@@ -933,6 +934,10 @@
             ],
             pkh: [
                 { q: "Bagaimana cara cek daftar penerima Bansos PKH?", p: ["Buka situs cekbansos.kemensos.go.id.", "Pilih Provinsi hingga Desa, masukkan nama sesuai KTP.", "Klik Cari Data. Akan muncul riwayat penerimaan bansos."], l: "Kementerian Sosial" }
+            ],
+            sim: [ 
+                { q: "Bagaimana syarat dan cara membuat SIM baru?", p: ["Siapkan e-KTP asli dan fotokopi.", "Siapkan surat keterangan sehat dari dokter dan bukti lulus tes psikologi.", "Datang ke Satpas terdekat, isi formulir pendaftaran, lalu ikuti ujian teori serta praktik mengemudi."], l: "Satpas Kepolisian RI" },
+                { q: "Apa saja syarat untuk melakukan perpanjangan SIM?", p: ["Bawa SIM lama asli yang belum habis masa berlakunya beserta fotokopinya.", "Bawa e-KTP asli dan fotokopi.", "Siapkan surat keterangan sehat jasmani dan hasil tes psikologi.", "Kunjungi layanan SIM Keliling atau kantor Satpas terdekat."], l: "Satpas / SIM Keliling" }
             ]
         };
 
@@ -1037,7 +1042,7 @@
         let currentActiveCategory = "";
 
         const mappingKategoriKeSub = {
-            'administrasi': ['ktp', 'kk', 'akta', 'tanah'],
+            'administrasi': ['ktp', 'kk', 'akta', 'tanah','sim'],
             'hukum': ['kekerasan', 'penipuan', 'perlindungan'],
             'kesehatan': ['bpjs', 'darurat'],
             'bansos': ['kip', 'pip', 'pkh']
@@ -1055,7 +1060,8 @@
             'darurat': 'Darurat Medis / Ambulans',
             'kip': 'KIP (Kartu Indonesia Pintar)',
             'pip': 'PIP (Program Indonesia Pintar)',
-            'pkh': 'PKH (Program Keluarga Harapan)'
+            'pkh': 'PKH (Program Keluarga Harapan)',
+            'sim': 'SIM (Surat Izin Mengemudi)' 
         };
 
         function pilihKategoriVisual(kategoriId) {
